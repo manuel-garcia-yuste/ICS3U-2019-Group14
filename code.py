@@ -108,8 +108,8 @@ def game_scene():
         # update game logic
         if stage.collide(paddle.x + 7, paddle.y, paddle.x + 9, paddle.y + 16,
                              ball.x + 4, ball.y + 4, ball.x + 8, ball.y + 8):
-            ball_direction_x = -1
-            ball_direction_y = -1
+            ball_direction_x = -2
+            ball_direction_y = -2
             sound.stop()
             sound.play(pew_sound)
         else:
@@ -119,8 +119,8 @@ def game_scene():
             # update game logic
         if stage.collide(paddle2.x + 7, paddle2.y, paddle2.x + 9, paddle2.y + 16,
                              ball.x + 4, ball.y + 4, ball.x + 8, ball.y + 8):
-            ball_direction_x = 1
-            ball_direction_y = 1
+            ball_direction_x = 2
+            ball_direction_y = 2
             sound.stop()
             sound.play(pew_sound)
         else:
