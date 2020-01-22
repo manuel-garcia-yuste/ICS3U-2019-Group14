@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Created by: Manuel Garcia Yuste
-# Created on : January 2019
+# Created on : January 2020
 # Final proyect
 
 import random
@@ -49,7 +49,7 @@ def menu():
 
         if keys & ugame.K_START != 0:
             game_scene()
-    
+
 
 
 def game_scene():
@@ -67,7 +67,7 @@ def game_scene():
     sprites.insert(0, paddle)
 
     # parameters (image_bank, image # in bank, x, y)
-    paddle2 = stage.Sprite(image_bank_1, 5, 9, 56)
+    paddle2 = stage.Sprite(image_bank_1, 5, 5, 56)
     sprites.insert(0, paddle2)
 
     # parameters (image_bank, image # in bank, x, y)
@@ -97,10 +97,12 @@ def game_scene():
         if keys & ugame.K_SELECT:
             pass
         if keys & ugame.K_UP:
-            paddle.move(paddle.x, paddle.y - 1)
+            if paddle.y > 0:
+                paddle.move(paddle.x, paddle.y - 1)
             pass
         if keys & ugame.K_DOWN:
-            paddle.move(paddle.x, paddle.y + 1)
+            if paddle.y < constants.SCREEN_Y - constants.SPRITE_SIZE:
+                paddle.move(paddle.x, paddle.y + 1)
             pass
 
         # update game logic
@@ -137,7 +139,7 @@ def game_scene():
             paddle2.move(paddle2.x, ball.y)
 
         ball.move(ball.x + ball_direction_x, ball.y + ball_direction_y)
-        if ball.x > 160:
+        if ball.x > 140:
             game_over()
 
         # redraw sprite list
